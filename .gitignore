@@ -1,0 +1,45 @@
+# Python
+__pycache__/
+*.pyc
+venv/
+.venv/
+.pytest_cache/
+.coverage
+
+# Local config / secrets
+config/config.local.yaml
+.env
+
+# Logs
+logs/
+
+# Personal data - never commit face photos or embeddings
+datasets/faces/known/*
+!datasets/faces/known/*/.gitkeep
+data/face_embeddings/*
+!data/face_embeddings/.gitkeep
+
+# Large model files are tracked with Git LFS (see .gitattributes).
+# Training artefacts are not needed at runtime:
+models/object_detection/vision_impaired_yolov8/
+*.pt
+# Downloaded model/package archives
+*.zip
+# Downloaded model packages / archives
+buffalo_s/
+buffalo_s.zip
+
+# Training checkpoints / weights
+*.pt
+*.pth
+
+# Python environments
+venv/
+.venv/
+
+# OS / IDE
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db

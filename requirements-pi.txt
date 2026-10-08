@@ -1,0 +1,23 @@
+# Vision BOB – Raspberry Pi–specific dependencies
+# Install these in addition to requirements.txt on the Pi
+
+# Raspberry Pi camera stack
+# NOTE: picamera2 is best installed via apt on the Pi:
+#   sudo apt install -y python3-picamera2
+# But can also be installed via pip on some setups:
+# picamera2>=0.3
+
+# Raspberry Pi GPIO
+# Raspberry Pi 5 (RP1 chip) is NOT supported by the classic RPi.GPIO package.
+# Use the drop-in replacement rpi-lgpio (same `import RPi.GPIO` API), via apt:
+#   sudo apt remove -y python3-rpi.gpio
+#   sudo apt install -y python3-rpi-lgpio
+# and create the venv with:  python3 -m venv --system-site-packages venv
+# Do NOT `pip install RPi.GPIO` on a Pi 5.
+
+# System performance monitoring (optional)
+psutil>=5.9
+
+# Google TTS (optional, requires internet)
+# gtts>=2.3
+# pygame>=2.5     # for gtts audio playback
