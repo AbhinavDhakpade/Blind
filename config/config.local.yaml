@@ -1,0 +1,104 @@
+camera:
+  width: 640
+  height: 480
+  fps: 15
+  backend: "opencv"
+  device_index: 0
+
+sensor:
+  backend: "mock"
+  trigger_pin: 23
+  echo_pin: 24
+  max_distance_m: 4.0
+  timeout_s: 0.04
+  sample_count: 3
+
+hardware:
+  vibration_pin: 18
+  gpio_backend: "mock"
+
+models:
+  object_detection:
+    path: "models/object_detection/yolov8n.onnx"
+    backend: "onnx"
+    confidence_threshold: 0.45
+    nms_threshold: 0.45
+    input_size: [640, 640]
+    class_names_path: "models/object_detection/coco_classes.txt"
+
+  face_detection:
+    path: "models/face_detection/face_detection_yunet.onnx"
+    backend: "yunet_opencv"
+    confidence_threshold: 0.60
+    nms_threshold: 0.30
+
+  face_recognition:
+    path: "models/face_recognition/mobilefacenet.onnx"
+    backend: "onnx"
+    similarity_threshold: 0.55
+    embeddings_path: "data/face_embeddings/embeddings.pkl"
+    input_size: [112, 112]
+
+  depth:
+    enabled: false
+    path: "models/depth/midas_small.onnx"
+    backend: "onnx"
+    input_size: [256, 256]
+
+distance:
+  very_near_m: 0.80
+  near_m: 1.50
+  medium_m: 3.00
+  ultrasonic_weight: 0.75
+
+risk:
+  class_priority:
+    person: 1.4
+    car: 1.6
+    truck: 1.6
+    motorcycle: 1.5
+    bicycle: 1.3
+    dog: 1.2
+    cat: 1.0
+    chair: 1.1
+    dining table: 1.1
+  centre_zone_fraction: 0.50
+  min_confidence: 0.40
+
+tracking:
+  max_age_frames: 8
+  min_iou: 0.30
+  history_len: 6
+  approach_threshold: 0.04
+
+alerts:
+  cooldown_ms: 1200
+  speech_backend: "mock"
+  haptic_backend: "mock"
+
+  haptic_patterns:
+    low: {pulses: 1, on_ms: 150, off_ms: 0}
+    medium: {pulses: 2, on_ms: 200, off_ms: 100}
+    high: {pulses: 3, on_ms: 250, off_ms: 80}
+    critical: {pulses: 5, on_ms: 300, off_ms: 60}
+
+  speech_messages:
+    approaching: "{object} approaching"
+    obstacle: "Obstacle ahead, {object}"
+    crowd: "Crowd ahead"
+    known_person: "Hello {name}"
+    unknown_person: "Unknown person nearby"
+
+performance:
+  log_fps: true
+  log_latency: true
+  log_cpu: false
+  log_memory: false
+  debug_overlay: false
+  stats_interval_s: 10
+
+logging:
+  level: "INFO"
+  file: "logs/vision_bob.log"
+  max_bytes: 5242880
+  backup_count: 3

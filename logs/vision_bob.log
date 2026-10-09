@@ -1,0 +1,598 @@
+2026-10-08 21:46:26 INFO     __main__                            Vision BOB starting up.
+2026-10-08 21:46:26 INFO     app.sensors.mock_sensor             MockUltrasonicSensor initialised (simulation).
+2026-10-08 21:46:26 INFO     app.alerts.haptic                   MockHapticAlert initialised (simulation).
+2026-10-08 21:46:26 INFO     app.alerts.speech                   MockSpeechAlert initialised (simulation).
+2026-10-08 21:46:26 INFO     app.alerts.manager                  AlertManager initialised.
+2026-10-08 21:46:26 INFO     app.camera.mock_camera              MockCamera initialised: 640x480 @ 15 fps (simulation)
+2026-10-08 21:46:26 INFO     app.detection.mock_detector         MockObjectDetector loaded (simulation).
+2026-10-08 21:46:26 INFO     app.face.mock_face_recognizer       MockFaceRecognizer loaded (simulation).
+2026-10-08 21:46:26 INFO     __main__                            All components initialised.  Entering main loop.
+2026-10-08 21:46:26 INFO     app.alerts.speech                   SPEECH [MOCK]: Obstacle ahead, person
+2026-10-08 21:46:28 INFO     app.alerts.speech                   SPEECH [MOCK]: Person ahead
+2026-10-08 21:46:29 INFO     app.alerts.speech                   SPEECH [MOCK]: Person ahead
+2026-10-08 21:46:30 INFO     app.alerts.speech                   SPEECH [MOCK]: Obstacle ahead, person
+2026-10-08 21:46:31 INFO     app.alerts.speech                   SPEECH [MOCK]: Obstacle ahead, person
+2026-10-08 21:46:32 INFO     app.alerts.speech                   SPEECH [MOCK]: Obstacle ahead, person
+2026-10-08 21:46:34 INFO     app.alerts.speech                   SPEECH [MOCK]: Obstacle ahead, person
+2026-10-08 21:46:35 INFO     app.alerts.speech                   SPEECH [MOCK]: Obstacle ahead, person
+2026-10-08 21:46:36 INFO     app.alerts.speech                   SPEECH [MOCK]: Obstacle ahead, person
+2026-10-08 21:46:36 INFO     app.utils.perf                      [PERF] FPS: 14.4
+2026-10-08 21:46:36 INFO     app.utils.perf                      [PERF] camera.capture                 avg 69.1 ms
+2026-10-08 21:46:36 INFO     app.utils.perf                      [PERF] sensor.measure                 avg 0.0 ms
+2026-10-08 21:46:36 INFO     app.utils.perf                      [PERF] detection.detect               avg 0.0 ms
+2026-10-08 21:46:36 INFO     app.utils.perf                      [PERF] tracking.update                avg 0.1 ms
+2026-10-08 21:46:36 INFO     app.utils.perf                      [PERF] face.process                   avg 0.0 ms
+2026-10-08 21:46:36 INFO     app.utils.perf                      [PERF] distance.calculate             avg 0.1 ms
+2026-10-08 21:46:36 INFO     app.utils.perf                      [PERF] risk.evaluate                  avg 0.1 ms
+2026-10-08 21:46:36 INFO     app.utils.perf                      [PERF] decision.decide                avg 0.0 ms
+2026-10-08 21:46:36 INFO     app.utils.perf                      [PERF] alerts.handle                  avg 0.1 ms
+2026-10-08 21:46:37 INFO     app.alerts.speech                   SPEECH [MOCK]: Obstacle ahead, person
+2026-10-08 21:46:38 INFO     app.alerts.speech                   SPEECH [MOCK]: Person ahead
+2026-10-08 21:46:39 INFO     app.alerts.speech                   SPEECH [MOCK]: Person ahead
+2026-10-08 21:46:40 INFO     app.alerts.speech                   SPEECH [MOCK]: Obstacle ahead, person
+2026-10-08 21:46:41 INFO     app.alerts.speech                   SPEECH [MOCK]: Obstacle ahead, person
+2026-10-08 21:46:42 INFO     app.alerts.speech                   SPEECH [MOCK]: Obstacle ahead, person
+2026-10-08 21:46:44 INFO     app.alerts.speech                   SPEECH [MOCK]: Obstacle ahead, person
+2026-10-08 21:46:45 INFO     app.alerts.speech                   SPEECH [MOCK]: Obstacle ahead, person
+2026-10-08 21:46:46 INFO     app.alerts.speech                   SPEECH [MOCK]: Obstacle ahead, person
+2026-10-08 21:46:46 INFO     app.utils.perf                      [PERF] FPS: 14.5
+2026-10-08 21:46:46 INFO     app.utils.perf                      [PERF] camera.capture                 avg 68.7 ms
+2026-10-08 21:46:46 INFO     app.utils.perf                      [PERF] sensor.measure                 avg 0.0 ms
+2026-10-08 21:46:46 INFO     app.utils.perf                      [PERF] detection.detect               avg 0.0 ms
+2026-10-08 21:46:46 INFO     app.utils.perf                      [PERF] tracking.update                avg 0.1 ms
+2026-10-08 21:46:46 INFO     app.utils.perf                      [PERF] face.process                   avg 0.0 ms
+2026-10-08 21:46:46 INFO     app.utils.perf                      [PERF] distance.calculate             avg 0.1 ms
+2026-10-08 21:46:46 INFO     app.utils.perf                      [PERF] risk.evaluate                  avg 0.1 ms
+2026-10-08 21:46:46 INFO     app.utils.perf                      [PERF] decision.decide                avg 0.0 ms
+2026-10-08 21:46:46 INFO     app.utils.perf                      [PERF] alerts.handle                  avg 0.0 ms
+2026-10-08 21:46:47 INFO     app.alerts.speech                   SPEECH [MOCK]: Obstacle ahead, person
+2026-10-08 21:46:48 INFO     app.alerts.speech                   SPEECH [MOCK]: Person ahead
+2026-10-08 21:46:49 INFO     app.alerts.speech                   SPEECH [MOCK]: Person ahead
+2026-10-08 21:46:50 INFO     app.alerts.speech                   SPEECH [MOCK]: Obstacle ahead, person
+2026-10-08 21:46:51 INFO     __main__                            Shutdown signal received.
+2026-10-08 21:46:51 INFO     __main__                            Shutting down components.
+2026-10-08 21:46:51 INFO     app.detection.mock_detector         MockObjectDetector unloaded.
+2026-10-08 21:46:51 INFO     app.face.mock_face_recognizer       MockFaceRecognizer unloaded.
+2026-10-08 21:46:51 INFO     app.camera.mock_camera              MockCamera shut down.
+2026-10-08 21:46:51 INFO     app.sensors.mock_sensor             MockUltrasonicSensor cleaned up.
+2026-10-08 21:46:51 INFO     app.alerts.manager                  AlertManager cleaned up.
+2026-10-08 21:46:51 INFO     __main__                            Vision BOB shut down cleanly.
+2026-10-08 22:01:30 INFO     __main__                            Vision BOB starting up.
+2026-10-08 22:01:30 INFO     app.sensors.mock_sensor             MockUltrasonicSensor initialised (simulation).
+2026-10-08 22:01:30 INFO     app.alerts.haptic                   MockHapticAlert initialised (simulation).
+2026-10-08 22:01:30 INFO     app.alerts.speech                   MockSpeechAlert initialised (simulation).
+2026-10-08 22:01:30 INFO     app.alerts.manager                  AlertManager initialised.
+2026-10-08 22:01:30 INFO     app.camera.opencv_camera            OpenCV camera initialised: 640x480 @ 15 fps (device=0)
+2026-10-08 22:01:31 INFO     app.detection.onnx_detector         ONNX object detector loaded: yolov8n.onnx
+2026-10-08 22:01:31 INFO     app.face.onnx_face_recognizer       YuNet face detector loaded: face_detection_yunet.onnx
+2026-10-08 22:01:31 INFO     app.face.onnx_face_recognizer       MobileFaceNet ONNX recogniser loaded: mobilefacenet.onnx
+2026-10-08 22:01:31 INFO     app.face.onnx_face_recognizer       Loaded 3 enrolled identities.
+2026-10-08 22:01:31 INFO     __main__                            All components initialised.  Entering main loop.
+2026-10-08 22:01:31 INFO     app.alerts.speech                   SPEECH [MOCK]: Unknown person nearby
+2026-10-08 22:01:33 INFO     app.alerts.speech                   SPEECH [MOCK]: Unknown person nearby
+2026-10-08 22:01:34 INFO     app.alerts.speech                   SPEECH [MOCK]: Unknown person nearby
+2026-10-08 22:01:36 INFO     app.alerts.speech                   SPEECH [MOCK]: Unknown person nearby
+2026-10-08 22:01:36 INFO     app.alerts.speech                   SPEECH [MOCK]: Obstacle ahead, person
+2026-10-08 22:01:38 INFO     app.alerts.speech                   SPEECH [MOCK]: Obstacle ahead, person
+2026-10-08 22:01:39 INFO     app.alerts.speech                   SPEECH [MOCK]: Obstacle ahead, person
+2026-10-08 22:01:39 INFO     app.alerts.speech                   SPEECH [MOCK]: Unknown person nearby
+2026-10-08 22:01:40 INFO     app.utils.perf                      [PERF] FPS: 3.3
+2026-10-08 22:01:40 INFO     app.utils.perf                      [PERF] camera.capture                 avg 58.6 ms
+2026-10-08 22:01:40 INFO     app.utils.perf                      [PERF] sensor.measure                 avg 0.0 ms
+2026-10-08 22:01:40 INFO     app.utils.perf                      [PERF] detection.detect               avg 78.0 ms
+2026-10-08 22:01:40 INFO     app.utils.perf                      [PERF] tracking.update                avg 0.0 ms
+2026-10-08 22:01:40 INFO     app.utils.perf                      [PERF] face.process                   avg 189.6 ms
+2026-10-08 22:01:40 INFO     app.utils.perf                      [PERF] distance.calculate             avg 0.0 ms
+2026-10-08 22:01:40 INFO     app.utils.perf                      [PERF] risk.evaluate                  avg 0.0 ms
+2026-10-08 22:01:40 INFO     app.utils.perf                      [PERF] decision.decide                avg 0.0 ms
+2026-10-08 22:01:40 INFO     app.utils.perf                      [PERF] alerts.handle                  avg 3.6 ms
+2026-10-08 22:01:41 INFO     app.alerts.speech                   SPEECH [MOCK]: Unknown person nearby
+2026-10-08 22:01:42 INFO     app.alerts.speech                   SPEECH [MOCK]: Unknown person nearby
+2026-10-08 22:01:43 INFO     app.alerts.speech                   SPEECH [MOCK]: Unknown person nearby
+2026-10-08 22:01:44 INFO     __main__                            Shutdown signal received.
+2026-10-08 22:01:44 INFO     __main__                            Shutting down components.
+2026-10-08 22:01:44 INFO     app.detection.onnx_detector         ONNX object detector unloaded.
+2026-10-08 22:01:44 INFO     app.face.onnx_face_recognizer       Face recognizer unloaded.
+2026-10-08 22:01:44 INFO     app.camera.opencv_camera            OpenCV camera released.
+2026-10-08 22:01:44 INFO     app.sensors.mock_sensor             MockUltrasonicSensor cleaned up.
+2026-10-08 22:01:44 INFO     app.alerts.manager                  AlertManager cleaned up.
+2026-10-08 22:01:44 INFO     __main__                            Vision BOB shut down cleanly.
+2026-10-08 22:03:37 INFO     __main__                            Vision BOB starting up.
+2026-10-08 22:03:37 INFO     app.sensors.mock_sensor             MockUltrasonicSensor initialised (simulation).
+2026-10-08 22:03:37 INFO     app.alerts.haptic                   MockHapticAlert initialised (simulation).
+2026-10-08 22:03:37 INFO     app.alerts.speech                   MockSpeechAlert initialised (simulation).
+2026-10-08 22:03:37 INFO     app.alerts.manager                  AlertManager initialised.
+2026-10-08 22:03:38 INFO     app.camera.opencv_camera            OpenCV camera initialised: 640x480 @ 15 fps (device=0)
+2026-10-08 22:03:38 INFO     app.detection.onnx_detector         ONNX object detector loaded: yolov8n.onnx
+2026-10-08 22:03:38 INFO     app.face.onnx_face_recognizer       YuNet face detector loaded: face_detection_yunet.onnx
+2026-10-08 22:03:38 INFO     app.face.onnx_face_recognizer       MobileFaceNet ONNX recogniser loaded: mobilefacenet.onnx
+2026-10-08 22:03:38 INFO     app.face.onnx_face_recognizer       Loaded 3 enrolled identities.
+2026-10-08 22:03:38 INFO     __main__                            All components initialised.  Entering main loop.
+2026-10-08 22:03:39 INFO     app.alerts.speech                   SPEECH [MOCK]: Person ahead
+2026-10-08 22:03:40 INFO     app.alerts.speech                   SPEECH [MOCK]: Unknown person nearby
+2026-10-08 22:03:42 INFO     app.alerts.speech                   SPEECH [MOCK]: Unknown person nearby
+2026-10-08 22:03:43 INFO     app.alerts.speech                   SPEECH [MOCK]: Unknown person nearby
+2026-10-08 22:03:44 INFO     app.alerts.speech                   SPEECH [MOCK]: Obstacle ahead, person
+2026-10-08 22:03:45 INFO     app.alerts.speech                   SPEECH [MOCK]: Obstacle ahead, person
+2026-10-08 22:03:47 INFO     app.alerts.speech                   SPEECH [MOCK]: Unknown person nearby
+2026-10-08 22:03:47 INFO     app.utils.perf                      [PERF] FPS: 3.2
+2026-10-08 22:03:47 INFO     app.utils.perf                      [PERF] camera.capture                 avg 58.2 ms
+2026-10-08 22:03:47 INFO     app.utils.perf                      [PERF] sensor.measure                 avg 0.0 ms
+2026-10-08 22:03:47 INFO     app.utils.perf                      [PERF] detection.detect               avg 74.2 ms
+2026-10-08 22:03:47 INFO     app.utils.perf                      [PERF] tracking.update                avg 0.0 ms
+2026-10-08 22:03:48 INFO     app.utils.perf                      [PERF] face.process                   avg 196.2 ms
+2026-10-08 22:03:48 INFO     app.utils.perf                      [PERF] distance.calculate             avg 0.0 ms
+2026-10-08 22:03:48 INFO     app.utils.perf                      [PERF] risk.evaluate                  avg 0.0 ms
+2026-10-08 22:03:48 INFO     app.utils.perf                      [PERF] decision.decide                avg 0.0 ms
+2026-10-08 22:03:48 INFO     app.utils.perf                      [PERF] alerts.handle                  avg 3.6 ms
+2026-10-08 22:03:48 INFO     app.alerts.speech                   SPEECH [MOCK]: Unknown person nearby
+2026-10-08 22:03:49 INFO     app.alerts.speech                   SPEECH [MOCK]: Unknown person nearby
+2026-10-08 22:03:51 INFO     app.alerts.speech                   SPEECH [MOCK]: Unknown person nearby
+2026-10-08 22:03:52 INFO     __main__                            Shutdown signal received.
+2026-10-08 22:03:52 INFO     app.alerts.speech                   SPEECH [MOCK]: Unknown person nearby
+2026-10-08 22:03:52 INFO     __main__                            Shutting down components.
+2026-10-08 22:03:52 INFO     app.detection.onnx_detector         ONNX object detector unloaded.
+2026-10-08 22:03:52 INFO     app.face.onnx_face_recognizer       Face recognizer unloaded.
+2026-10-08 22:03:52 INFO     app.camera.opencv_camera            OpenCV camera released.
+2026-10-08 22:03:52 INFO     app.sensors.mock_sensor             MockUltrasonicSensor cleaned up.
+2026-10-08 22:03:52 INFO     app.alerts.manager                  AlertManager cleaned up.
+2026-10-08 22:03:52 INFO     __main__                            Vision BOB shut down cleanly.
+2026-10-08 22:10:52 INFO     __main__                            Vision BOB starting up.
+2026-10-08 22:10:52 INFO     app.sensors.mock_sensor             MockUltrasonicSensor initialised (simulation).
+2026-10-08 22:10:52 INFO     app.alerts.haptic                   MockHapticAlert initialised (simulation).
+2026-10-08 22:10:52 INFO     app.alerts.speech                   MockSpeechAlert initialised (simulation).
+2026-10-08 22:10:52 INFO     app.alerts.manager                  AlertManager initialised.
+2026-10-08 22:10:52 INFO     app.camera.opencv_camera            OpenCV camera initialised: 640x480 @ 15 fps (device=0)
+2026-10-08 22:10:52 INFO     app.detection.onnx_detector         ONNX object detector loaded: yolov8n.onnx
+2026-10-08 22:10:52 INFO     app.face.onnx_face_recognizer       YuNet face detector loaded: face_detection_yunet.onnx
+2026-10-08 22:10:52 INFO     app.face.onnx_face_recognizer       MobileFaceNet ONNX recogniser loaded: mobilefacenet.onnx
+2026-10-08 22:10:53 INFO     app.face.onnx_face_recognizer       Loaded 3 enrolled identities.
+2026-10-08 22:10:53 INFO     __main__                            All components initialised.  Entering main loop.
+2026-10-08 22:10:53 INFO     app.alerts.speech                   SPEECH [MOCK]: Unknown person nearby
+2026-10-08 22:10:54 INFO     app.alerts.speech                   SPEECH [MOCK]: Unknown person nearby
+2026-10-08 22:10:56 INFO     app.alerts.speech                   SPEECH [MOCK]: Unknown person nearby
+2026-10-08 22:10:57 INFO     app.alerts.speech                   SPEECH [MOCK]: Person ahead
+2026-10-08 22:10:58 INFO     app.alerts.speech                   SPEECH [MOCK]: Obstacle ahead, person
+2026-10-08 22:11:00 INFO     app.alerts.speech                   SPEECH [MOCK]: Obstacle ahead, person
+2026-10-08 22:11:01 INFO     app.alerts.speech                   SPEECH [MOCK]: Unknown person nearby
+2026-10-08 22:11:02 INFO     app.utils.perf                      [PERF] FPS: 3.8
+2026-10-08 22:11:02 INFO     app.utils.perf                      [PERF] camera.capture                 avg 49.9 ms
+2026-10-08 22:11:02 INFO     app.utils.perf                      [PERF] sensor.measure                 avg 0.0 ms
+2026-10-08 22:11:02 INFO     app.utils.perf                      [PERF] detection.detect               avg 74.2 ms
+2026-10-08 22:11:02 INFO     app.utils.perf                      [PERF] tracking.update                avg 0.0 ms
+2026-10-08 22:11:02 INFO     app.utils.perf                      [PERF] face.process                   avg 173.7 ms
+2026-10-08 22:11:02 INFO     app.utils.perf                      [PERF] distance.calculate             avg 0.0 ms
+2026-10-08 22:11:02 INFO     app.utils.perf                      [PERF] risk.evaluate                  avg 0.0 ms
+2026-10-08 22:11:02 INFO     app.utils.perf                      [PERF] decision.decide                avg 0.0 ms
+2026-10-08 22:11:02 INFO     app.utils.perf                      [PERF] alerts.handle                  avg 3.8 ms
+2026-10-08 22:11:03 INFO     app.alerts.speech                   SPEECH [MOCK]: Unknown person nearby
+2026-10-08 22:11:04 INFO     app.alerts.speech                   SPEECH [MOCK]: Unknown person nearby
+2026-10-08 22:11:05 INFO     app.alerts.speech                   SPEECH [MOCK]: Unknown person nearby
+2026-10-08 22:11:07 INFO     app.alerts.speech                   SPEECH [MOCK]: Unknown person nearby
+2026-10-08 22:11:08 INFO     app.alerts.speech                   SPEECH [MOCK]: Unknown person nearby
+2026-10-08 22:11:09 INFO     app.alerts.speech                   SPEECH [MOCK]: Obstacle ahead, person
+2026-10-08 22:11:10 INFO     app.alerts.speech                   SPEECH [MOCK]: Obstacle ahead, person
+2026-10-08 22:11:11 INFO     app.alerts.speech                   SPEECH [MOCK]: Unknown person nearby
+2026-10-08 22:11:12 INFO     app.utils.perf                      [PERF] FPS: 3.5
+2026-10-08 22:11:12 INFO     app.utils.perf                      [PERF] camera.capture                 avg 43.5 ms
+2026-10-08 22:11:12 INFO     app.utils.perf                      [PERF] sensor.measure                 avg 0.0 ms
+2026-10-08 22:11:12 INFO     app.utils.perf                      [PERF] detection.detect               avg 71.3 ms
+2026-10-08 22:11:12 INFO     app.utils.perf                      [PERF] tracking.update                avg 0.0 ms
+2026-10-08 22:11:12 INFO     app.utils.perf                      [PERF] face.process                   avg 183.1 ms
+2026-10-08 22:11:12 INFO     app.utils.perf                      [PERF] distance.calculate             avg 0.0 ms
+2026-10-08 22:11:12 INFO     app.utils.perf                      [PERF] risk.evaluate                  avg 0.0 ms
+2026-10-08 22:11:12 INFO     app.utils.perf                      [PERF] decision.decide                avg 0.0 ms
+2026-10-08 22:11:12 INFO     app.utils.perf                      [PERF] alerts.handle                  avg 3.5 ms
+2026-10-08 22:11:12 INFO     app.alerts.speech                   SPEECH [MOCK]: Unknown person nearby
+2026-10-08 22:11:14 INFO     app.alerts.speech                   SPEECH [MOCK]: Unknown person nearby
+2026-10-08 22:11:15 INFO     app.alerts.speech                   SPEECH [MOCK]: Unknown person nearby
+2026-10-08 22:11:16 INFO     app.alerts.speech                   SPEECH [MOCK]: Unknown person nearby
+2026-10-08 22:11:17 INFO     app.alerts.speech                   SPEECH [MOCK]: Unknown person nearby
+2026-10-08 22:11:19 INFO     app.alerts.speech                   SPEECH [MOCK]: Obstacle ahead, person
+2026-10-08 22:11:20 INFO     app.alerts.speech                   SPEECH [MOCK]: Obstacle ahead, person
+2026-10-08 22:11:21 INFO     app.alerts.speech                   SPEECH [MOCK]: Unknown person nearby
+2026-10-08 22:11:22 INFO     app.alerts.speech                   SPEECH [MOCK]: Unknown person nearby
+2026-10-08 22:11:22 INFO     app.utils.perf                      [PERF] FPS: 3.3
+2026-10-08 22:11:22 INFO     app.utils.perf                      [PERF] camera.capture                 avg 47.2 ms
+2026-10-08 22:11:22 INFO     app.utils.perf                      [PERF] sensor.measure                 avg 0.0 ms
+2026-10-08 22:11:22 INFO     app.utils.perf                      [PERF] detection.detect               avg 72.7 ms
+2026-10-08 22:11:22 INFO     app.utils.perf                      [PERF] tracking.update                avg 0.0 ms
+2026-10-08 22:11:22 INFO     app.utils.perf                      [PERF] face.process                   avg 196.2 ms
+2026-10-08 22:11:22 INFO     app.utils.perf                      [PERF] distance.calculate             avg 0.0 ms
+2026-10-08 22:11:22 INFO     app.utils.perf                      [PERF] risk.evaluate                  avg 0.0 ms
+2026-10-08 22:11:22 INFO     app.utils.perf                      [PERF] decision.decide                avg 0.0 ms
+2026-10-08 22:11:22 INFO     app.utils.perf                      [PERF] alerts.handle                  avg 5.0 ms
+2026-10-08 22:11:24 INFO     app.alerts.speech                   SPEECH [MOCK]: Unknown person nearby
+2026-10-08 22:11:25 INFO     app.alerts.speech                   SPEECH [MOCK]: Unknown person nearby
+2026-10-08 22:11:26 INFO     app.alerts.speech                   SPEECH [MOCK]: Unknown person nearby
+2026-10-08 22:11:28 INFO     app.alerts.speech                   SPEECH [MOCK]: Unknown person nearby
+2026-10-08 22:11:28 INFO     app.alerts.speech                   SPEECH [MOCK]: Obstacle ahead, person
+2026-10-08 22:11:30 INFO     app.alerts.speech                   SPEECH [MOCK]: Obstacle ahead, person
+2026-10-08 22:11:31 INFO     app.alerts.speech                   SPEECH [MOCK]: Unknown person nearby
+2026-10-08 22:11:33 INFO     app.alerts.speech                   SPEECH [MOCK]: Unknown person nearby
+2026-10-08 22:11:33 INFO     app.utils.perf                      [PERF] FPS: 3.0
+2026-10-08 22:11:33 INFO     app.utils.perf                      [PERF] camera.capture                 avg 50.5 ms
+2026-10-08 22:11:33 INFO     app.utils.perf                      [PERF] sensor.measure                 avg 0.0 ms
+2026-10-08 22:11:33 INFO     app.utils.perf                      [PERF] detection.detect               avg 75.9 ms
+2026-10-08 22:11:33 INFO     app.utils.perf                      [PERF] tracking.update                avg 0.0 ms
+2026-10-08 22:11:33 INFO     app.utils.perf                      [PERF] face.process                   avg 202.7 ms
+2026-10-08 22:11:33 INFO     app.utils.perf                      [PERF] distance.calculate             avg 0.0 ms
+2026-10-08 22:11:33 INFO     app.utils.perf                      [PERF] risk.evaluate                  avg 0.0 ms
+2026-10-08 22:11:33 INFO     app.utils.perf                      [PERF] decision.decide                avg 0.0 ms
+2026-10-08 22:11:33 INFO     app.utils.perf                      [PERF] alerts.handle                  avg 5.5 ms
+2026-10-08 22:11:34 INFO     __main__                            Shutdown signal received.
+2026-10-08 22:11:34 INFO     app.alerts.speech                   SPEECH [MOCK]: Unknown person nearby
+2026-10-08 22:11:34 INFO     __main__                            Shutting down components.
+2026-10-08 22:11:34 INFO     app.detection.onnx_detector         ONNX object detector unloaded.
+2026-10-08 22:11:34 INFO     app.face.onnx_face_recognizer       Face recognizer unloaded.
+2026-10-08 22:11:34 INFO     app.camera.opencv_camera            OpenCV camera released.
+2026-10-08 22:11:34 INFO     app.sensors.mock_sensor             MockUltrasonicSensor cleaned up.
+2026-10-08 22:11:34 INFO     app.alerts.manager                  AlertManager cleaned up.
+2026-10-08 22:11:34 INFO     __main__                            Vision BOB shut down cleanly.
+2026-10-08 22:21:47 INFO     __main__                            Vision BOB starting up.
+2026-10-08 22:26:23 INFO     __main__                            Vision BOB starting up.
+2026-10-08 22:26:23 INFO     app.sensors.mock_sensor             MockUltrasonicSensor initialised (simulation).
+2026-10-08 22:26:23 INFO     app.alerts.haptic                   MockHapticAlert initialised (simulation).
+2026-10-08 22:26:23 INFO     app.alerts.speech                   MockSpeechAlert initialised (simulation).
+2026-10-08 22:26:23 INFO     app.alerts.manager                  AlertManager initialised.
+2026-10-08 22:26:23 INFO     app.camera.opencv_camera            OpenCV camera initialised: 640x480 @ 15 fps (device=0)
+2026-10-08 22:26:23 INFO     app.detection.onnx_detector         ONNX object detector loaded: yolov8n.onnx
+2026-10-08 22:26:23 INFO     app.face.onnx_face_recognizer       YuNet face detector loaded: face_detection_yunet.onnx
+2026-10-08 22:26:24 INFO     app.face.onnx_face_recognizer       MobileFaceNet ONNX recogniser loaded: mobilefacenet.onnx
+2026-10-08 22:26:24 INFO     app.face.onnx_face_recognizer       Loaded 3 enrolled identities.
+2026-10-08 22:26:24 INFO     __main__                            All components initialised.  Entering main loop.
+2026-10-08 22:26:24 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.4909 | threshold=0.5500
+2026-10-08 22:26:24 INFO     app.alerts.speech                   SPEECH [MOCK]: Unknown person nearby
+2026-10-08 22:26:24 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.4142 | threshold=0.5500
+2026-10-08 22:26:25 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.3505 | threshold=0.5500
+2026-10-08 22:26:25 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.5138 | threshold=0.5500
+2026-10-08 22:26:25 INFO     app.alerts.speech                   SPEECH [MOCK]: Unknown person nearby
+2026-10-08 22:26:26 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.4080 | threshold=0.5500
+2026-10-08 22:26:26 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.4268 | threshold=0.5500
+2026-10-08 22:26:27 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.4520 | threshold=0.5500
+2026-10-08 22:26:27 INFO     app.alerts.speech                   SPEECH [MOCK]: Unknown person nearby
+2026-10-08 22:26:27 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.4284 | threshold=0.5500
+2026-10-08 22:26:27 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.4536 | threshold=0.5500
+2026-10-08 22:26:28 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.4316 | threshold=0.5500
+2026-10-08 22:26:28 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.4132 | threshold=0.5500
+2026-10-08 22:26:28 INFO     app.alerts.speech                   SPEECH [MOCK]: Unknown person nearby
+2026-10-08 22:26:29 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.4125 | threshold=0.5500
+2026-10-08 22:26:29 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.3987 | threshold=0.5500
+2026-10-08 22:26:29 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.3917 | threshold=0.5500
+2026-10-08 22:26:29 INFO     app.alerts.speech                   SPEECH [MOCK]: Obstacle ahead, person
+2026-10-08 22:26:30 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.3870 | threshold=0.5500
+2026-10-08 22:26:30 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.4328 | threshold=0.5500
+2026-10-08 22:26:31 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.4464 | threshold=0.5500
+2026-10-08 22:26:31 INFO     app.alerts.speech                   SPEECH [MOCK]: Obstacle ahead, person
+2026-10-08 22:26:31 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.4089 | threshold=0.5500
+2026-10-08 22:26:31 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.3971 | threshold=0.5500
+2026-10-08 22:26:32 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.4620 | threshold=0.5500
+2026-10-08 22:26:32 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.3390 | threshold=0.5500
+2026-10-08 22:26:32 INFO     app.alerts.speech                   SPEECH [MOCK]: Unknown person nearby
+2026-10-08 22:26:33 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.4299 | threshold=0.5500
+2026-10-08 22:26:33 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.4086 | threshold=0.5500
+2026-10-08 22:26:33 INFO     app.utils.perf                      [PERF] FPS: 2.6
+2026-10-08 22:26:33 INFO     app.utils.perf                      [PERF] camera.capture                 avg 71.7 ms
+2026-10-08 22:26:33 INFO     app.utils.perf                      [PERF] sensor.measure                 avg 0.0 ms
+2026-10-08 22:26:33 INFO     app.utils.perf                      [PERF] detection.detect               avg 80.0 ms
+2026-10-08 22:26:33 INFO     app.utils.perf                      [PERF] tracking.update                avg 0.0 ms
+2026-10-08 22:26:33 INFO     app.utils.perf                      [PERF] face.process                   avg 229.3 ms
+2026-10-08 22:26:33 INFO     app.utils.perf                      [PERF] distance.calculate             avg 0.1 ms
+2026-10-08 22:26:33 INFO     app.utils.perf                      [PERF] risk.evaluate                  avg 0.0 ms
+2026-10-08 22:26:33 INFO     app.utils.perf                      [PERF] decision.decide                avg 0.0 ms
+2026-10-08 22:26:33 INFO     app.utils.perf                      [PERF] alerts.handle                  avg 6.4 ms
+2026-10-08 22:26:33 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.4467 | threshold=0.5500
+2026-10-08 22:26:34 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.4686 | threshold=0.5500
+2026-10-08 22:26:34 INFO     app.alerts.speech                   SPEECH [MOCK]: Unknown person nearby
+2026-10-08 22:26:34 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.4026 | threshold=0.5500
+2026-10-08 22:26:35 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.3784 | threshold=0.5500
+2026-10-08 22:26:35 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.3871 | threshold=0.5500
+2026-10-08 22:26:35 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.4225 | threshold=0.5500
+2026-10-08 22:26:35 INFO     app.alerts.speech                   SPEECH [MOCK]: Unknown person nearby
+2026-10-08 22:26:36 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.4505 | threshold=0.5500
+2026-10-08 22:26:36 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.4019 | threshold=0.5500
+2026-10-08 22:26:37 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.4402 | threshold=0.5500
+2026-10-08 22:26:37 INFO     app.alerts.speech                   SPEECH [MOCK]: Unknown person nearby
+2026-10-08 22:26:37 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.4334 | threshold=0.5500
+2026-10-08 22:26:38 INFO     app.alerts.speech                   SPEECH [MOCK]: Person ahead
+2026-10-08 22:26:43 INFO     app.utils.perf                      [PERF] FPS: 21.5
+2026-10-08 22:26:43 INFO     app.utils.perf                      [PERF] camera.capture                 avg 19.8 ms
+2026-10-08 22:26:43 INFO     app.utils.perf                      [PERF] sensor.measure                 avg 0.0 ms
+2026-10-08 22:26:43 INFO     app.utils.perf                      [PERF] detection.detect               avg 26.7 ms
+2026-10-08 22:26:43 INFO     app.utils.perf                      [PERF] tracking.update                avg 0.0 ms
+2026-10-08 22:26:43 INFO     app.utils.perf                      [PERF] face.process                   avg 214.0 ms
+2026-10-08 22:26:43 INFO     app.utils.perf                      [PERF] distance.calculate             avg 0.0 ms
+2026-10-08 22:26:43 INFO     app.utils.perf                      [PERF] risk.evaluate                  avg 0.0 ms
+2026-10-08 22:26:43 INFO     app.utils.perf                      [PERF] decision.decide                avg 0.0 ms
+2026-10-08 22:26:43 INFO     app.utils.perf                      [PERF] alerts.handle                  avg 0.0 ms
+2026-10-08 22:26:47 INFO     app.alerts.speech                   SPEECH [MOCK]: Person ahead
+2026-10-08 22:26:50 INFO     app.alerts.speech                   SPEECH [MOCK]: Obstacle ahead, person
+2026-10-08 22:26:53 INFO     app.utils.perf                      [PERF] FPS: 20.5
+2026-10-08 22:26:53 INFO     app.utils.perf                      [PERF] camera.capture                 avg 20.2 ms
+2026-10-08 22:26:53 INFO     app.utils.perf                      [PERF] sensor.measure                 avg 0.0 ms
+2026-10-08 22:26:53 INFO     app.utils.perf                      [PERF] detection.detect               avg 27.7 ms
+2026-10-08 22:26:53 INFO     app.utils.perf                      [PERF] tracking.update                avg 0.0 ms
+2026-10-08 22:26:53 INFO     app.utils.perf                      [PERF] face.process                   avg 193.4 ms
+2026-10-08 22:26:53 INFO     app.utils.perf                      [PERF] distance.calculate             avg 0.0 ms
+2026-10-08 22:26:53 INFO     app.utils.perf                      [PERF] risk.evaluate                  avg 0.0 ms
+2026-10-08 22:26:53 INFO     app.utils.perf                      [PERF] decision.decide                avg 0.0 ms
+2026-10-08 22:26:53 INFO     app.utils.perf                      [PERF] alerts.handle                  avg 0.0 ms
+2026-10-08 22:27:03 INFO     app.utils.perf                      [PERF] FPS: 21.3
+2026-10-08 22:27:03 INFO     app.utils.perf                      [PERF] camera.capture                 avg 19.7 ms
+2026-10-08 22:27:03 INFO     app.utils.perf                      [PERF] sensor.measure                 avg 0.0 ms
+2026-10-08 22:27:03 INFO     app.utils.perf                      [PERF] detection.detect               avg 27.0 ms
+2026-10-08 22:27:03 INFO     app.utils.perf                      [PERF] tracking.update                avg 0.0 ms
+2026-10-08 22:27:03 INFO     app.utils.perf                      [PERF] face.process                   avg 193.4 ms
+2026-10-08 22:27:03 INFO     app.utils.perf                      [PERF] distance.calculate             avg 0.0 ms
+2026-10-08 22:27:03 INFO     app.utils.perf                      [PERF] risk.evaluate                  avg 0.0 ms
+2026-10-08 22:27:03 INFO     app.utils.perf                      [PERF] decision.decide                avg 0.0 ms
+2026-10-08 22:27:03 INFO     app.utils.perf                      [PERF] alerts.handle                  avg 0.0 ms
+2026-10-08 22:27:08 INFO     app.alerts.speech                   SPEECH [MOCK]: Person ahead
+2026-10-08 22:27:08 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.2214 | threshold=0.5500
+2026-10-08 22:27:09 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.2355 | threshold=0.5500
+2026-10-08 22:27:09 INFO     app.face.onnx_face_recognizer       FACE MATCH: vaishnavi | similarity=0.2781 | threshold=0.5500
+2026-10-08 22:27:09 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.2085 | threshold=0.5500
+2026-10-08 22:27:09 INFO     app.face.onnx_face_recognizer       FACE MATCH: vaishnavi | similarity=0.3056 | threshold=0.5500
+2026-10-08 22:27:09 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.2103 | threshold=0.5500
+2026-10-08 22:27:09 INFO     app.alerts.speech                   SPEECH [MOCK]: Obstacle ahead, person
+2026-10-08 22:27:10 INFO     app.face.onnx_face_recognizer       FACE MATCH: vaishnavi | similarity=0.3345 | threshold=0.5500
+2026-10-08 22:27:10 INFO     app.face.onnx_face_recognizer       FACE MATCH: siddhi | similarity=0.2071 | threshold=0.5500
+2026-10-08 22:27:10 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.2601 | threshold=0.5500
+2026-10-08 22:27:10 INFO     app.face.onnx_face_recognizer       FACE MATCH: siddhi | similarity=0.3236 | threshold=0.5500
+2026-10-08 22:27:10 INFO     app.face.onnx_face_recognizer       FACE MATCH: siddhi | similarity=0.2709 | threshold=0.5500
+2026-10-08 22:27:11 INFO     app.face.onnx_face_recognizer       FACE MATCH: vaishnavi | similarity=0.3415 | threshold=0.5500
+2026-10-08 22:27:11 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.2822 | threshold=0.5500
+2026-10-08 22:27:11 INFO     app.alerts.speech                   SPEECH [MOCK]: Obstacle ahead, person
+2026-10-08 22:27:11 INFO     app.face.onnx_face_recognizer       FACE MATCH: vaishnavi | similarity=0.3526 | threshold=0.5500
+2026-10-08 22:27:11 INFO     app.face.onnx_face_recognizer       FACE MATCH: siddhi | similarity=0.2637 | threshold=0.5500
+2026-10-08 22:27:11 INFO     app.face.onnx_face_recognizer       FACE MATCH: vaishnavi | similarity=0.2703 | threshold=0.5500
+2026-10-08 22:27:11 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.2698 | threshold=0.5500
+2026-10-08 22:27:11 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.2992 | threshold=0.5500
+2026-10-08 22:27:12 INFO     app.face.onnx_face_recognizer       FACE MATCH: vaishnavi | similarity=0.3162 | threshold=0.5500
+2026-10-08 22:27:12 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.2286 | threshold=0.5500
+2026-10-08 22:27:12 INFO     app.face.onnx_face_recognizer       FACE MATCH: vaishnavi | similarity=0.2982 | threshold=0.5500
+2026-10-08 22:27:12 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.2825 | threshold=0.5500
+2026-10-08 22:27:12 INFO     app.alerts.speech                   SPEECH [MOCK]: Unknown person nearby
+2026-10-08 22:27:13 INFO     app.utils.perf                      [PERF] FPS: 8.9
+2026-10-08 22:27:13 INFO     app.utils.perf                      [PERF] camera.capture                 avg 26.9 ms
+2026-10-08 22:27:13 INFO     app.utils.perf                      [PERF] sensor.measure                 avg 0.0 ms
+2026-10-08 22:27:13 INFO     app.utils.perf                      [PERF] detection.detect               avg 39.5 ms
+2026-10-08 22:27:13 INFO     app.utils.perf                      [PERF] tracking.update                avg 0.0 ms
+2026-10-08 22:27:13 INFO     app.utils.perf                      [PERF] face.process                   avg 195.1 ms
+2026-10-08 22:27:13 INFO     app.utils.perf                      [PERF] distance.calculate             avg 0.0 ms
+2026-10-08 22:27:13 INFO     app.utils.perf                      [PERF] risk.evaluate                  avg 0.0 ms
+2026-10-08 22:27:13 INFO     app.utils.perf                      [PERF] decision.decide                avg 0.0 ms
+2026-10-08 22:27:13 INFO     app.utils.perf                      [PERF] alerts.handle                  avg 1.8 ms
+2026-10-08 22:27:14 INFO     app.alerts.speech                   SPEECH [MOCK]: Person ahead
+2026-10-08 22:27:15 INFO     app.face.onnx_face_recognizer       FACE MATCH: vaishnavi | similarity=0.2652 | threshold=0.5500
+2026-10-08 22:27:15 INFO     app.face.onnx_face_recognizer       FACE MATCH: siddhi | similarity=0.1989 | threshold=0.5500
+2026-10-08 22:27:15 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.1682 | threshold=0.5500
+2026-10-08 22:27:16 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.2472 | threshold=0.5500
+2026-10-08 22:27:16 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.2539 | threshold=0.5500
+2026-10-08 22:27:16 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.1433 | threshold=0.5500
+2026-10-08 22:27:16 INFO     app.alerts.speech                   SPEECH [MOCK]: Unknown person nearby
+2026-10-08 22:27:16 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.2137 | threshold=0.5500
+2026-10-08 22:27:16 INFO     app.face.onnx_face_recognizer       FACE MATCH: vaishnavi | similarity=0.1877 | threshold=0.5500
+2026-10-08 22:27:16 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.2518 | threshold=0.5500
+2026-10-08 22:27:16 INFO     app.face.onnx_face_recognizer       FACE MATCH: siddhi | similarity=0.2311 | threshold=0.5500
+2026-10-08 22:27:16 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.2576 | threshold=0.5500
+2026-10-08 22:27:16 INFO     app.face.onnx_face_recognizer       FACE MATCH: vaishnavi | similarity=0.2256 | threshold=0.5500
+2026-10-08 22:27:17 INFO     app.face.onnx_face_recognizer       FACE MATCH: vaishnavi | similarity=0.2311 | threshold=0.5500
+2026-10-08 22:27:17 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.1722 | threshold=0.5500
+2026-10-08 22:27:17 INFO     app.face.onnx_face_recognizer       FACE MATCH: siddhi | similarity=0.1834 | threshold=0.5500
+2026-10-08 22:27:17 INFO     app.face.onnx_face_recognizer       FACE MATCH: siddhi | similarity=0.2132 | threshold=0.5500
+2026-10-08 22:27:17 INFO     app.alerts.speech                   SPEECH [MOCK]: Unknown person nearby
+2026-10-08 22:27:18 INFO     app.alerts.speech                   SPEECH [MOCK]: Person ahead
+2026-10-08 22:27:18 INFO     __main__                            Shutdown signal received.
+2026-10-08 22:27:18 INFO     __main__                            Shutting down components.
+2026-10-08 22:27:18 INFO     app.detection.onnx_detector         ONNX object detector unloaded.
+2026-10-08 22:27:18 INFO     app.face.onnx_face_recognizer       Face recognizer unloaded.
+2026-10-08 22:27:19 INFO     app.camera.opencv_camera            OpenCV camera released.
+2026-10-08 22:27:19 INFO     app.sensors.mock_sensor             MockUltrasonicSensor cleaned up.
+2026-10-08 22:27:19 INFO     app.alerts.manager                  AlertManager cleaned up.
+2026-10-08 22:27:19 INFO     __main__                            Vision BOB shut down cleanly.
+2026-10-08 22:33:08 INFO     __main__                            Vision BOB starting up.
+2026-10-08 22:33:08 INFO     app.sensors.mock_sensor             MockUltrasonicSensor initialised (simulation).
+2026-10-08 22:33:08 INFO     app.alerts.haptic                   MockHapticAlert initialised (simulation).
+2026-10-08 22:33:08 INFO     app.alerts.speech                   MockSpeechAlert initialised (simulation).
+2026-10-08 22:33:08 INFO     app.alerts.manager                  AlertManager initialised.
+2026-10-08 22:33:08 INFO     app.camera.opencv_camera            OpenCV camera initialised: 640x480 @ 15 fps (device=0)
+2026-10-08 22:33:09 INFO     app.detection.onnx_detector         ONNX object detector loaded: yolov8n.onnx
+2026-10-08 22:33:09 INFO     app.face.onnx_face_recognizer       YuNet face detector loaded: face_detection_yunet.onnx
+2026-10-08 22:33:09 INFO     app.face.onnx_face_recognizer       MobileFaceNet ONNX recogniser loaded: mobilefacenet.onnx
+2026-10-08 22:33:09 INFO     app.face.onnx_face_recognizer       Loaded 3 enrolled identities.
+2026-10-08 22:33:09 INFO     __main__                            All components initialised.  Entering main loop.
+2026-10-08 22:33:09 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.4965 | threshold=0.5500
+2026-10-08 22:33:09 INFO     app.alerts.speech                   SPEECH [MOCK]: Unknown person nearby
+2026-10-08 22:33:10 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.4815 | threshold=0.5500
+2026-10-08 22:33:10 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.4825 | threshold=0.5500
+2026-10-08 22:33:10 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.5034 | threshold=0.5500
+2026-10-08 22:33:10 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.4347 | threshold=0.5500
+2026-10-08 22:33:11 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.4619 | threshold=0.5500
+2026-10-08 22:33:11 INFO     app.alerts.speech                   SPEECH [MOCK]: Unknown person nearby
+2026-10-08 22:33:11 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.4226 | threshold=0.5500
+2026-10-08 22:33:12 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.4552 | threshold=0.5500
+2026-10-08 22:33:12 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.4374 | threshold=0.5500
+2026-10-08 22:33:12 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.4349 | threshold=0.5500
+2026-10-08 22:33:12 INFO     app.alerts.speech                   SPEECH [MOCK]: Unknown person nearby
+2026-10-08 22:33:13 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.4483 | threshold=0.5500
+2026-10-08 22:33:13 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.4361 | threshold=0.5500
+2026-10-08 22:33:13 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.4419 | threshold=0.5500
+2026-10-08 22:33:14 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.4269 | threshold=0.5500
+2026-10-08 22:33:14 INFO     app.alerts.speech                   SPEECH [MOCK]: Unknown person nearby
+2026-10-08 22:33:14 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.4363 | threshold=0.5500
+2026-10-08 22:33:14 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.3908 | threshold=0.5500
+2026-10-08 22:33:14 INFO     app.alerts.speech                   SPEECH [MOCK]: Obstacle ahead, person
+2026-10-08 22:33:15 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.4674 | threshold=0.5500
+2026-10-08 22:33:15 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.3523 | threshold=0.5500
+2026-10-08 22:33:15 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.3521 | threshold=0.5500
+2026-10-08 22:33:16 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.4209 | threshold=0.5500
+2026-10-08 22:33:16 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.4137 | threshold=0.5500
+2026-10-08 22:33:16 INFO     app.alerts.speech                   SPEECH [MOCK]: Obstacle ahead, person
+2026-10-08 22:33:16 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.4491 | threshold=0.5500
+2026-10-08 22:33:16 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.5386 | threshold=0.5500
+2026-10-08 22:33:17 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.5392 | threshold=0.5500
+2026-10-08 22:33:17 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.3100 | threshold=0.5500
+2026-10-08 22:33:17 INFO     app.alerts.speech                   SPEECH [MOCK]: Unknown person nearby
+2026-10-08 22:33:18 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.2382 | threshold=0.5500
+2026-10-08 22:33:18 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.3032 | threshold=0.5500
+2026-10-08 22:33:18 INFO     app.utils.perf                      [PERF] FPS: 3.1
+2026-10-08 22:33:18 INFO     app.utils.perf                      [PERF] camera.capture                 avg 51.2 ms
+2026-10-08 22:33:18 INFO     app.utils.perf                      [PERF] sensor.measure                 avg 0.0 ms
+2026-10-08 22:33:18 INFO     app.utils.perf                      [PERF] detection.detect               avg 70.8 ms
+2026-10-08 22:33:18 INFO     app.utils.perf                      [PERF] tracking.update                avg 0.0 ms
+2026-10-08 22:33:18 INFO     app.utils.perf                      [PERF] distance.calculate             avg 0.1 ms
+2026-10-08 22:33:18 INFO     app.utils.perf                      [PERF] risk.evaluate                  avg 0.0 ms
+2026-10-08 22:33:18 INFO     app.utils.perf                      [PERF] decision.decide                avg 0.0 ms
+2026-10-08 22:33:18 INFO     app.utils.perf                      [PERF] alerts.handle                  avg 5.8 ms
+2026-10-08 22:33:18 INFO     app.utils.perf                      [PERF] face.process                   avg 205.5 ms
+2026-10-08 22:33:18 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.2991 | threshold=0.5500
+2026-10-08 22:33:19 INFO     app.face.onnx_face_recognizer       FACE MATCH: vaishnavi | similarity=0.2720 | threshold=0.5500
+2026-10-08 22:33:19 INFO     app.alerts.speech                   SPEECH [MOCK]: Unknown person nearby
+2026-10-08 22:33:19 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.4489 | threshold=0.5500
+2026-10-08 22:33:19 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.4156 | threshold=0.5500
+2026-10-08 22:33:19 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.4261 | threshold=0.5500
+2026-10-08 22:33:20 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.2676 | threshold=0.5500
+2026-10-08 22:33:20 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.2227 | threshold=0.5500
+2026-10-08 22:33:20 INFO     app.alerts.speech                   SPEECH [MOCK]: Unknown person nearby
+2026-10-08 22:33:21 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.2537 | threshold=0.5500
+2026-10-08 22:33:21 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.2432 | threshold=0.5500
+2026-10-08 22:33:21 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.3008 | threshold=0.5500
+2026-10-08 22:33:21 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.5398 | threshold=0.5500
+2026-10-08 22:33:21 INFO     app.alerts.speech                   SPEECH [MOCK]: Unknown person nearby
+2026-10-08 22:33:22 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.3867 | threshold=0.5500
+2026-10-08 22:33:22 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.3700 | threshold=0.5500
+2026-10-08 22:33:22 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.3723 | threshold=0.5500
+2026-10-08 22:33:23 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.4510 | threshold=0.5500
+2026-10-08 22:33:23 INFO     app.alerts.speech                   SPEECH [MOCK]: Unknown person nearby
+2026-10-08 22:33:23 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.4258 | threshold=0.5500
+2026-10-08 22:33:23 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.4462 | threshold=0.5500
+2026-10-08 22:33:24 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.4796 | threshold=0.5500
+2026-10-08 22:33:24 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.4529 | threshold=0.5500
+2026-10-08 22:33:24 INFO     app.alerts.speech                   SPEECH [MOCK]: Unknown person nearby
+2026-10-08 22:33:24 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.4426 | threshold=0.5500
+2026-10-08 22:33:25 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.4604 | threshold=0.5500
+2026-10-08 22:33:25 INFO     app.alerts.speech                   SPEECH [MOCK]: Obstacle ahead, person
+2026-10-08 22:33:25 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.4382 | threshold=0.5500
+2026-10-08 22:33:25 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.4220 | threshold=0.5500
+2026-10-08 22:33:25 INFO     app.alerts.speech                   SPEECH [MOCK]: Unknown person nearby
+2026-10-08 22:33:26 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.4291 | threshold=0.5500
+2026-10-08 22:33:26 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.3853 | threshold=0.5500
+2026-10-08 22:33:26 INFO     app.alerts.speech                   SPEECH [MOCK]: Obstacle ahead, person
+2026-10-08 22:33:26 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.3340 | threshold=0.5500
+2026-10-08 22:33:27 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.2107 | threshold=0.5500
+2026-10-08 22:33:27 INFO     app.alerts.speech                   SPEECH [MOCK]: Unknown person nearby
+2026-10-08 22:33:27 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.4300 | threshold=0.5500
+2026-10-08 22:33:28 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.4524 | threshold=0.5500
+2026-10-08 22:33:28 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.4570 | threshold=0.5500
+2026-10-08 22:33:28 INFO     app.utils.perf                      [PERF] FPS: 3.1
+2026-10-08 22:33:28 INFO     app.utils.perf                      [PERF] camera.capture                 avg 45.7 ms
+2026-10-08 22:33:28 INFO     app.utils.perf                      [PERF] sensor.measure                 avg 0.0 ms
+2026-10-08 22:33:28 INFO     app.utils.perf                      [PERF] detection.detect               avg 73.6 ms
+2026-10-08 22:33:28 INFO     app.utils.perf                      [PERF] tracking.update                avg 0.0 ms
+2026-10-08 22:33:28 INFO     app.utils.perf                      [PERF] distance.calculate             avg 0.0 ms
+2026-10-08 22:33:28 INFO     app.utils.perf                      [PERF] risk.evaluate                  avg 0.0 ms
+2026-10-08 22:33:28 INFO     app.utils.perf                      [PERF] decision.decide                avg 0.0 ms
+2026-10-08 22:33:28 INFO     app.utils.perf                      [PERF] alerts.handle                  avg 6.1 ms
+2026-10-08 22:33:28 INFO     app.utils.perf                      [PERF] face.process                   avg 197.4 ms
+2026-10-08 22:33:29 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.4468 | threshold=0.5500
+2026-10-08 22:33:29 INFO     app.alerts.speech                   SPEECH [MOCK]: Unknown person nearby
+2026-10-08 22:33:29 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.4056 | threshold=0.5500
+2026-10-08 22:33:29 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.4844 | threshold=0.5500
+2026-10-08 22:33:29 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.4033 | threshold=0.5500
+2026-10-08 22:33:30 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.3877 | threshold=0.5500
+2026-10-08 22:33:30 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.4175 | threshold=0.5500
+2026-10-08 22:33:30 INFO     app.alerts.speech                   SPEECH [MOCK]: Unknown person nearby
+2026-10-08 22:33:30 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.2776 | threshold=0.5500
+2026-10-08 22:33:31 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.4175 | threshold=0.5500
+2026-10-08 22:33:31 INFO     __main__                            Shutdown signal received.
+2026-10-08 22:33:31 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.3413 | threshold=0.5500
+2026-10-08 22:33:31 INFO     __main__                            Shutting down components.
+2026-10-08 22:33:31 INFO     app.detection.onnx_detector         ONNX object detector unloaded.
+2026-10-08 22:33:31 INFO     app.face.onnx_face_recognizer       Face recognizer unloaded.
+2026-10-08 22:33:31 INFO     app.camera.opencv_camera            OpenCV camera released.
+2026-10-08 22:33:31 INFO     app.sensors.mock_sensor             MockUltrasonicSensor cleaned up.
+2026-10-08 22:33:31 INFO     app.alerts.manager                  AlertManager cleaned up.
+2026-10-08 22:33:31 INFO     __main__                            Vision BOB shut down cleanly.
+2026-10-08 22:42:47 INFO     __main__                            Vision BOB starting up.
+2026-10-08 22:42:47 INFO     app.sensors.mock_sensor             MockUltrasonicSensor initialised (simulation).
+2026-10-08 22:42:47 INFO     app.alerts.haptic                   MockHapticAlert initialised (simulation).
+2026-10-08 22:42:47 INFO     app.alerts.speech                   MockSpeechAlert initialised (simulation).
+2026-10-08 22:42:47 INFO     app.alerts.manager                  AlertManager initialised.
+2026-10-08 22:42:48 INFO     app.camera.opencv_camera            OpenCV camera initialised: 640x480 @ 15 fps (device=0)
+2026-10-08 22:42:48 INFO     app.detection.onnx_detector         ONNX object detector loaded: yolov8n.onnx
+2026-10-08 22:42:48 INFO     app.face.onnx_face_recognizer       YuNet face detector loaded: face_detection_yunet.onnx
+2026-10-08 22:42:48 INFO     app.face.onnx_face_recognizer       MobileFaceNet ONNX recogniser loaded: mobilefacenet.onnx
+2026-10-08 22:42:48 INFO     app.face.onnx_face_recognizer       Loaded 3 enrolled identities.
+2026-10-08 22:42:48 INFO     __main__                            All components initialised.  Entering main loop.
+2026-10-08 22:42:49 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.4454 | threshold=0.5500
+2026-10-08 22:42:49 INFO     app.alerts.speech                   SPEECH [MOCK]: Unknown person nearby
+2026-10-08 22:42:49 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.5562 | threshold=0.5500
+2026-10-08 22:42:50 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.4749 | threshold=0.5500
+2026-10-08 22:42:50 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.5713 | threshold=0.5500
+2026-10-08 22:42:50 INFO     app.alerts.speech                   SPEECH [MOCK]: Hello abhinav
+2026-10-08 22:42:51 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.5230 | threshold=0.5500
+2026-10-08 22:42:51 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.5697 | threshold=0.5500
+2026-10-08 22:42:51 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.5075 | threshold=0.5500
+2026-10-08 22:42:52 INFO     app.alerts.speech                   SPEECH [MOCK]: Unknown person nearby
+2026-10-08 22:42:52 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.3692 | threshold=0.5500
+2026-10-08 22:42:53 INFO     app.alerts.speech                   SPEECH [MOCK]: Unknown person nearby
+2026-10-08 22:42:54 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.2879 | threshold=0.5500
+2026-10-08 22:42:54 INFO     app.alerts.speech                   SPEECH [MOCK]: Obstacle ahead, person
+2026-10-08 22:42:54 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.3187 | threshold=0.5500
+2026-10-08 22:42:55 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.4161 | threshold=0.5500
+2026-10-08 22:42:55 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.3931 | threshold=0.5500
+2026-10-08 22:42:55 INFO     app.alerts.speech                   SPEECH [MOCK]: Obstacle ahead, person
+2026-10-08 22:42:55 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.4587 | threshold=0.5500
+2026-10-08 22:42:56 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.4181 | threshold=0.5500
+2026-10-08 22:42:56 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.4058 | threshold=0.5500
+2026-10-08 22:42:56 INFO     app.alerts.speech                   SPEECH [MOCK]: Obstacle ahead, person
+2026-10-08 22:42:57 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.5084 | threshold=0.5500
+2026-10-08 22:42:57 INFO     app.alerts.speech                   SPEECH [MOCK]: Unknown person nearby
+2026-10-08 22:42:57 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.3937 | threshold=0.5500
+2026-10-08 22:42:57 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.3040 | threshold=0.5500
+2026-10-08 22:42:57 INFO     app.utils.perf                      [PERF] FPS: 3.7
+2026-10-08 22:42:57 INFO     app.utils.perf                      [PERF] camera.capture                 avg 55.4 ms
+2026-10-08 22:42:58 INFO     app.utils.perf                      [PERF] sensor.measure                 avg 0.0 ms
+2026-10-08 22:42:58 INFO     app.utils.perf                      [PERF] detection.detect               avg 56.3 ms
+2026-10-08 22:42:58 INFO     app.utils.perf                      [PERF] tracking.update                avg 0.0 ms
+2026-10-08 22:42:58 INFO     app.utils.perf                      [PERF] face.process                   avg 169.0 ms
+2026-10-08 22:42:58 INFO     app.utils.perf                      [PERF] distance.calculate             avg 0.1 ms
+2026-10-08 22:42:58 INFO     app.utils.perf                      [PERF] risk.evaluate                  avg 0.0 ms
+2026-10-08 22:42:58 INFO     app.utils.perf                      [PERF] decision.decide                avg 0.0 ms
+2026-10-08 22:42:58 INFO     app.utils.perf                      [PERF] alerts.handle                  avg 2.6 ms
+2026-10-08 22:42:58 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.1592 | threshold=0.5500
+2026-10-08 22:42:58 INFO     app.alerts.speech                   SPEECH [MOCK]: Unknown person nearby
+2026-10-08 22:42:58 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.5479 | threshold=0.5500
+2026-10-08 22:42:59 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.0519 | threshold=0.5500
+2026-10-08 22:42:59 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.3550 | threshold=0.5500
+2026-10-08 22:42:59 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.4750 | threshold=0.5500
+2026-10-08 22:43:00 INFO     app.alerts.speech                   SPEECH [MOCK]: Unknown person nearby
+2026-10-08 22:43:00 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.5263 | threshold=0.5500
+2026-10-08 22:43:00 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.0746 | threshold=0.5500
+2026-10-08 22:43:01 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.5182 | threshold=0.5500
+2026-10-08 22:43:01 INFO     app.alerts.speech                   SPEECH [MOCK]: Unknown person nearby
+2026-10-08 22:43:01 INFO     app.face.onnx_face_recognizer       FACE MATCH: siddhi | similarity=0.0643 | threshold=0.5500
+2026-10-08 22:43:02 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.1434 | threshold=0.5500
+2026-10-08 22:43:02 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.3937 | threshold=0.5500
+2026-10-08 22:43:03 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.4011 | threshold=0.5500
+2026-10-08 22:43:03 INFO     app.alerts.speech                   SPEECH [MOCK]: Unknown person nearby
+2026-10-08 22:43:03 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.3568 | threshold=0.5500
+2026-10-08 22:43:03 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.1213 | threshold=0.5500
+2026-10-08 22:43:04 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.2231 | threshold=0.5500
+2026-10-08 22:43:04 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.0825 | threshold=0.5500
+2026-10-08 22:43:04 INFO     app.alerts.speech                   SPEECH [MOCK]: Obstacle ahead, person
+2026-10-08 22:43:04 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.5185 | threshold=0.5500
+2026-10-08 22:43:05 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.4766 | threshold=0.5500
+2026-10-08 22:43:05 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.5516 | threshold=0.5500
+2026-10-08 22:43:05 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.4521 | threshold=0.5500
+2026-10-08 22:43:05 INFO     __main__                            Shutdown signal received.
+2026-10-08 22:43:06 INFO     app.face.onnx_face_recognizer       FACE MATCH: abhinav | similarity=0.3320 | threshold=0.5500
+2026-10-08 22:43:06 INFO     app.alerts.speech                   SPEECH [MOCK]: Obstacle ahead, person
+2026-10-08 22:43:06 INFO     __main__                            Shutting down components.
+2026-10-08 22:43:06 INFO     app.detection.onnx_detector         ONNX object detector unloaded.
+2026-10-08 22:43:06 INFO     app.face.onnx_face_recognizer       Face recognizer unloaded.
+2026-10-08 22:43:06 INFO     app.camera.opencv_camera            OpenCV camera released.
+2026-10-08 22:43:06 INFO     app.sensors.mock_sensor             MockUltrasonicSensor cleaned up.
+2026-10-08 22:43:06 INFO     app.alerts.manager                  AlertManager cleaned up.
+2026-10-08 22:43:06 INFO     __main__                            Vision BOB shut down cleanly.
