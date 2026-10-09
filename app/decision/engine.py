@@ -48,6 +48,8 @@ class DecisionAction:
     direction:      Spatial direction string.
     person_name:    Identified person name (P3 KNOWN) or None.
     message:        Pre-formatted human-readable message for speech.
+    identity_kind:  For IDENTIFY_PERSON: 'known' | 'unknown' | 'crowd' | 'person'.
+                    Lets the AlertManager apply a different cooldown to each.
     """
     action_type:  ActionType
     risk_level:   RiskLevel       = RiskLevel.CLEAR
@@ -56,6 +58,7 @@ class DecisionAction:
     direction:    str             = "centre"
     person_name:  Optional[str]   = None
     message:      str             = ""
+    identity_kind: str            = ""
 
 
 class DecisionEngine:
@@ -92,7 +95,7 @@ class DecisionEngine:
 
         # ── Priority 3: crowd / person → face identification ──────────
         if self._is_crowd_or_person(assessment):
-            person_name, face_msg = self._identify_person(assessment)
+            person_name, face_msg, kind = self._identify_person(assessment)
             return DecisionAction(
                 action_type=ActionType.IDENTIFY_PERSON,
                 risk_level=assessment.level,
@@ -100,6 +103,7 @@ class DecisionEngine:
                 distance_m=assessment.distance_m,
                 person_name=person_name,
                 message=face_msg,
+                identity_kind=kind,
             )
 
         # ── Clear path ─────────────────────────────────────────────────
@@ -133,16 +137,22 @@ class DecisionEngine:
 
     # ------------------------------------------------------------------
     @staticmethod
-    def _identify_person(a: RiskAssessment) -> tuple[Optional[str], str]:
+    def _identify_person(a: RiskAssessment) -> tuple[Optional[str], str, str]:
+        """Return (person_name, message, kind).
+
+        "Unknown person nearby" is only said when a face was actually confirmed
+        as unknown. Several people detected by YOLO but no confirmed face is
+        reported as "People nearby" - it must not be labelled unknown.
+        """
         known = [fr for fr in a.face_results if fr.identity == FaceIdentity.KNOWN]
         if known:
             name = known[0].name or "someone"
-            return name, f"Hello {name}"
+            return name, f"Hello {name}", "known"
 
-        has_unknown = any(
-            fr.identity == FaceIdentity.UNKNOWN for fr in a.face_results
-        )
-        if has_unknown or a.crowd:
-            return None, "Unknown person nearby"
+        if any(fr.identity == FaceIdentity.UNKNOWN for fr in a.face_results):
+            return None, "Unknown person nearby", "unknown"
 
-        return None, "Person ahead"
+        if a.crowd:
+            return None, "People nearby", "crowd"
+
+        return None, "Person ahead", "person"

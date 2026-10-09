@@ -33,6 +33,7 @@ from app.sensors.factory import create_sensor
 from app.detection.factory import create_detector
 from app.face.factory import create_face_recognizer
 from app.face.temporal import FaceSmoother
+from app.face.base import NO_FACE_RESULT
 from app.depth.factory import create_depth_estimator
 from app.distance.engine import DistanceEngine
 from app.tracking.iou_tracker import IoUTracker
@@ -120,7 +121,8 @@ def main() -> None:
     _running = [True]
 
     def _shutdown(sig, frame):  # noqa: ANN001
-        logger.info("Shutdown signal received.")
+        # Only set a flag here. Logging inside a signal handler can re-enter the
+        # logging stream mid-write ("reentrant call") - log from the main loop instead.
         _running[0] = False
 
     signal.signal(signal.SIGINT,  _shutdown)
@@ -169,7 +171,13 @@ def main() -> None:
     # Main processing loop
     # ------------------------------------------------------------------
     try:
-        face_smoother = FaceSmoother(window=5, min_hits=3)
+        face_smoother = FaceSmoother(window=5, min_hits=3, unknown_hits=4)
+        FACE_INTERVAL_S = 0.4      # run face recognition at most this often
+        FACE_GRACE_S = 1.0         # keep last face result this long after the person vanishes
+        last_face_run = 0.0
+        last_person_seen = 0.0
+        _dbg_last = 0.0            # TEMP diagnostic - remove once face ID is confirmed
+        face_results = [NO_FACE_RESULT]
         while _running[0]:
             loop_start = time.monotonic()
 
@@ -201,15 +209,30 @@ def main() -> None:
             with perf.measure("tracking.update"):
                 tracked_objects = tracker.update(detections)
 
-            # 5. Face recognition (only when persons detected)
-            person_detected = any(d.class_name == "person" for d in detections)
-            if person_detected:
-                with perf.measure("face.process"):
-                    face_results = face_rec.process(frame.image)
-            else:
-                from app.face.base import NO_FACE_RESULT
+            # 5. Face recognition: only on person boxes, throttled, then smoothed.
+            #    The smoother is fed once per recognition run, so "3 of 5" means
+            #    three separate recognitions, not three repeats of one result.
+            person_boxes = _person_boxes(detections)
+            now = time.monotonic()
+            if now - _dbg_last > 1.0:   # TEMP diagnostic
+                _dbg_last = now
+                logger.info("DBG detections=%s person_boxes=%s",
+                            [(d.class_name, round(d.confidence, 2), d.bbox) for d in detections],
+                            person_boxes)
+            if person_boxes:
+                last_person_seen = now
+                if now - last_face_run >= FACE_INTERVAL_S:
+                    with perf.measure("face.process"):
+                        if hasattr(face_rec, "process_regions"):
+                            raw_faces = face_rec.process_regions(frame.image, person_boxes)
+                        else:  # mock recogniser
+                            raw_faces = face_rec.process(frame.image)
+                    face_results = face_smoother.update(raw_faces)
+                    last_face_run = now
+                # else: keep the previous face_results until the next run
+            elif now - last_person_seen > FACE_GRACE_S:
+                face_smoother.reset()
                 face_results = [NO_FACE_RESULT]
-            face_results = face_smoother.update(face_results)
 
             # 6. Distance estimation
             with perf.measure("distance.calculate"):
@@ -246,6 +269,8 @@ def main() -> None:
     except Exception as exc:
         logger.critical("Unhandled exception in main loop: %s", exc, exc_info=True)
     finally:
+        if not _running[0]:
+            logger.info("Shutdown signal received.")
         logger.info("Shutting down components.")
         try:
             detector.unload()
@@ -257,6 +282,25 @@ def main() -> None:
         except Exception as exc:
             logger.error("Error during shutdown: %s", exc)
         logger.info("Vision BOB shut down cleanly.")
+
+
+# ---------------------------------------------------------------------------
+# Helpers
+# ---------------------------------------------------------------------------
+
+def _person_boxes(detections, min_width: int = 60, max_n: int = 3):
+    """Largest `max_n` person boxes (x1, y1, x2, y2) wide enough to hold a usable face."""
+    boxes = []
+    for d in detections:
+        if d.class_name != "person":
+            continue
+        x1, y1, x2, y2 = d.bbox
+        bw, bh = x2 - x1, y2 - y1
+        if bw < min_width or bh <= 0:
+            continue
+        boxes.append((bw * bh, (x1, y1, x2, y2)))
+    boxes.sort(key=lambda t: t[0], reverse=True)
+    return [b for _, b in boxes[:max_n]]
 
 
 # ---------------------------------------------------------------------------
