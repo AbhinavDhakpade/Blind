@@ -32,6 +32,7 @@ from app.camera.factory import create_camera
 from app.sensors.factory import create_sensor
 from app.detection.factory import create_detector
 from app.face.factory import create_face_recognizer
+from app.face.temporal import FaceSmoother
 from app.depth.factory import create_depth_estimator
 from app.distance.engine import DistanceEngine
 from app.tracking.iou_tracker import IoUTracker
@@ -168,6 +169,7 @@ def main() -> None:
     # Main processing loop
     # ------------------------------------------------------------------
     try:
+        face_smoother = FaceSmoother(window=5, min_hits=3)
         while _running[0]:
             loop_start = time.monotonic()
 
@@ -207,6 +209,7 @@ def main() -> None:
             else:
                 from app.face.base import NO_FACE_RESULT
                 face_results = [NO_FACE_RESULT]
+            face_results = face_smoother.update(face_results)
 
             # 6. Distance estimation
             with perf.measure("distance.calculate"):
