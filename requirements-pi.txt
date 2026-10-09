@@ -8,12 +8,9 @@
 # picamera2>=0.3
 
 # Raspberry Pi GPIO
-# Raspberry Pi 5 (RP1 chip) is NOT supported by the classic RPi.GPIO package.
-# Use the drop-in replacement rpi-lgpio (same `import RPi.GPIO` API), via apt:
-#   sudo apt remove -y python3-rpi.gpio
-#   sudo apt install -y python3-rpi-lgpio
-# and create the venv with:  python3 -m venv --system-site-packages venv
-# Do NOT `pip install RPi.GPIO` on a Pi 5.
+# NOTE: also installable via apt:
+#   sudo apt install -y python3-rpi.gpio
+RPi.GPIO>=0.7.0
 
 # System performance monitoring (optional)
 psutil>=5.9

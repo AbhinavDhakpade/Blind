@@ -20,7 +20,6 @@ def main():
     print(f"Sensor backend: {cfg.sensor.backend}")
 
     with create_sensor(cfg.sensor) as sensor:
-        time.sleep(1.0)   # let the background ranging thread produce a first reading
         readings = []
         for i in range(20):
             r = sensor.measure()
@@ -28,7 +27,7 @@ def main():
             print(f"  {i+1:2d}: {status}")
             if r.valid and r.distance_m is not None:
                 readings.append(r.distance_m)
-            time.sleep(0.25)
+            time.sleep(0.1)
 
     if readings:
         print(f"\nValid readings: {len(readings)}/20")

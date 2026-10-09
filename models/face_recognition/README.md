@@ -8,11 +8,11 @@ models/face_recognition/mobilefacenet.onnx
 
 ## Model
 
-**MobileFaceNet** — lightweight face embedding model.
+**MobileFaceNet (w600k_mbf)** — InsightFace MBF face embedding model.
 
-- Architecture: MobileNet-inspired, ~1 M parameters
-- Input:  `[1, 3, 112, 112]`  float32, (pixel – 127.5) / 128 normalisation, RGB
-- Output: `[1, 128]`           L2-normalised embedding vector
+- Architecture: MobileNet-inspired, ~6.9 M parameters
+- Input:  `[N, 3, 112, 112]`  float32, (pixel – 127.5) / 128 normalisation, RGB
+- Output: `[1, 512]`           L2-normalised embedding vector
 - Latency on Pi 5: **~10–20 ms** per face crop
 - Recognition: cosine similarity against pre-built embedding database
 

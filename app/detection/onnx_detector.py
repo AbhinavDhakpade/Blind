@@ -32,32 +32,16 @@ logger = logging.getLogger(__name__)
 
 
 class ONNXObjectDetector(ObjectDetectorInterface):
-    """YOLOv8n / YOLO11n ONNX Runtime detector.
-
-    Handles the details that commonly break YOLO ONNX deployments:
-      * input size is read from the model itself (static models), falling
-        back to ``input_size`` in config only for dynamic-shape models;
-      * frames are letterboxed (aspect ratio preserved, grey padding);
-      * output boxes are accepted either as pixels in model-input space
-        (Ultralytics default) or as normalised 0-1 values (auto-detected);
-      * boxes are mapped back through the letterbox to original pixels;
-      * the number of class names is checked against the model output.
-    """
-
-    _PAD_VALUE = 114  # Ultralytics letterbox grey
+    """YOLOv8n / YOLO11n ONNX Runtime detector."""
 
     def __init__(self, cfg) -> None:
         self._cfg = cfg
         self._model_path = Path(cfg.path)
         self._conf_threshold: float = getattr(cfg, "confidence_threshold", 0.45)
         self._nms_threshold: float = getattr(cfg, "nms_threshold", 0.45)
-        # config input_size is [width, height]
-        self._cfg_input_wh: tuple[int, int] = tuple(getattr(cfg, "input_size", [640, 640]))
-        self._input_w: int = self._cfg_input_wh[0]
-        self._input_h: int = self._cfg_input_wh[1]
+        self._input_size: tuple[int, int] = tuple(getattr(cfg, "input_size", [640, 640]))
         self._class_names: list[str] = []
         self._session = None
-        self._input_name: str = "images"
 
     # ------------------------------------------------------------------
     def load(self) -> None:
@@ -67,14 +51,13 @@ class ONNXObjectDetector(ObjectDetectorInterface):
                 "See models/object_detection/README.md for export instructions."
             )
 
-        names_cfg = getattr(self._cfg, "class_names_path", "")
-        names_path = Path(names_cfg) if names_cfg else None
-        if names_path is not None and names_path.exists():
-            self._class_names = [
-                ln.strip() for ln in names_path.read_text().splitlines() if ln.strip()
-            ]
+        # Load class names
+        names_path = Path(getattr(self._cfg, "class_names_path", ""))
+        if names_path.exists():
+            self._class_names = names_path.read_text().strip().splitlines()
         else:
-            self._class_names = list(_COCO_CLASSES)
+            # Fallback: COCO 80-class names
+            self._class_names = _COCO_CLASSES
 
         try:
             import onnxruntime as ort  # type: ignore
@@ -83,6 +66,7 @@ class ONNXObjectDetector(ObjectDetectorInterface):
                 "onnxruntime not installed.  Run: pip install onnxruntime"
             ) from exc
 
+        # Prefer CPU on Raspberry Pi; suppress verbose ONNX logs
         opts = ort.SessionOptions()
         opts.log_severity_level = 3
         self._session = ort.InferenceSession(
@@ -90,62 +74,39 @@ class ONNXObjectDetector(ObjectDetectorInterface):
             sess_options=opts,
             providers=["CPUExecutionProvider"],
         )
-
-        inp = self._session.get_inputs()[0]
-        self._input_name = inp.name
-        shape = inp.shape  # [1, 3, H, W]; entries may be str/None if dynamic
-        h, w = shape[2], shape[3]
-        if isinstance(h, int) and isinstance(w, int):
-            if (w, h) != self._cfg_input_wh:
-                logger.warning(
-                    "Config input_size %s differs from model's fixed input %dx%d (WxH); "
-                    "using the model's size.", list(self._cfg_input_wh), w, h,
-                )
-            self._input_w, self._input_h = w, h
-        # else: dynamic model -> keep config size
-
-        # Validate class-name count against model output channels
-        out_shape = self._session.get_outputs()[0].shape  # [1, 4+nc, N]
-        if len(out_shape) == 3 and isinstance(out_shape[1], int):
-            n_classes = out_shape[1] - 4
-            if n_classes != len(self._class_names):
-                raise ModelLoadError(
-                    f"Model has {n_classes} classes but class names file has "
-                    f"{len(self._class_names)}.  Fix class_names_path in config."
-                )
-
-        logger.info(
-            "ONNX object detector loaded: %s (input %dx%d, %d classes)",
-            self._model_path.name, self._input_w, self._input_h, len(self._class_names),
-        )
+        logger.info("ONNX object detector loaded: %s", self._model_path.name)
 
     # ------------------------------------------------------------------
     def detect(self, frame: np.ndarray) -> List[Detection]:
         if self._session is None:
             raise RuntimeError("Detector not loaded.  Call load() first.")
 
+        input_h, input_w = self._input_size[1], self._input_size[0]
         orig_h, orig_w = frame.shape[:2]
-        blob, scale, pad_x, pad_y = self._preprocess(frame)
-        outputs = self._session.run(None, {self._input_name: blob})
-        return self._postprocess(outputs[0], orig_w, orig_h, scale, pad_x, pad_y)
+
+        # Pre-process
+        blob = self._preprocess(frame, input_w, input_h)
+
+        input_name = self._session.get_inputs()[0].name
+        outputs = self._session.run(None, {input_name: blob})
+
+        # Post-process
+        detections = self._postprocess(
+            outputs[0], orig_w, orig_h, input_w, input_h
+        )
+        return detections
 
     # ------------------------------------------------------------------
-    def _preprocess(self, frame: np.ndarray):
-        """Letterbox to (input_h, input_w) and return blob, scale, pad_x, pad_y."""
-        orig_h, orig_w = frame.shape[:2]
-        scale = min(self._input_w / orig_w, self._input_h / orig_h)
-        new_w, new_h = int(round(orig_w * scale)), int(round(orig_h * scale))
-        resized = cv2.resize(frame, (new_w, new_h), interpolation=cv2.INTER_LINEAR)
-
-        canvas = np.full((self._input_h, self._input_w, 3), self._PAD_VALUE, dtype=np.uint8)
-        pad_x = (self._input_w - new_w) // 2
-        pad_y = (self._input_h - new_h) // 2
-        canvas[pad_y:pad_y + new_h, pad_x:pad_x + new_w] = resized
-
-        rgb = cv2.cvtColor(canvas, cv2.COLOR_BGR2RGB)
+    def _preprocess(
+        self, frame: np.ndarray, target_w: int, target_h: int
+    ) -> np.ndarray:
+        """Resize + normalise to [1, 3, H, W] float32 RGB tensor."""
+        resized = cv2.resize(frame, (target_w, target_h))
+        rgb = cv2.cvtColor(resized, cv2.COLOR_BGR2RGB)
         blob = rgb.astype(np.float32) / 255.0
-        blob = np.transpose(blob, (2, 0, 1))[None]
-        return np.ascontiguousarray(blob), scale, pad_x, pad_y
+        blob = np.transpose(blob, (2, 0, 1))          # HWC → CHW
+        blob = np.expand_dims(blob, axis=0)           # add batch dim
+        return blob
 
     # ------------------------------------------------------------------
     def _postprocess(
@@ -153,14 +114,16 @@ class ONNXObjectDetector(ObjectDetectorInterface):
         output: np.ndarray,
         orig_w: int,
         orig_h: int,
-        scale: float,
-        pad_x: int,
-        pad_y: int,
+        input_w: int,
+        input_h: int,
     ) -> List[Detection]:
-        """Parse YOLOv8 output [1, 4+nc, N] -> Detection list in original pixels."""
-        predictions = output[0].T                 # [N, 4+nc]
-        boxes_raw = predictions[:, :4].astype(np.float32)   # cx, cy, w, h
-        scores_raw = predictions[:, 4:]
+        """Parse YOLOv8 output tensor → list of Detection objects."""
+        # output shape: [1, 84, 8400]
+        predictions = output[0]          # [84, 8400]
+        predictions = predictions.T      # [8400, 84]
+
+        boxes_raw = predictions[:, :4]   # cx, cy, w, h (normalised)
+        scores_raw = predictions[:, 4:]  # [8400, 80]
 
         class_ids = np.argmax(scores_raw, axis=1)
         confidences = scores_raw[np.arange(len(scores_raw)), class_ids]
@@ -169,39 +132,39 @@ class ONNXObjectDetector(ObjectDetectorInterface):
         boxes_raw = boxes_raw[mask]
         class_ids = class_ids[mask]
         confidences = confidences[mask]
+
         if len(boxes_raw) == 0:
             return []
 
-        # Ultralytics ONNX exports give pixels in model-input space.  Some
-        # exports give 0-1 normalised values; detect that and scale up.
-        if float(boxes_raw.max()) <= 1.5:
-            boxes_raw[:, [0, 2]] *= self._input_w
-            boxes_raw[:, [1, 3]] *= self._input_h
+        # Convert cx, cy, w, h → x1, y1, x2, y2 in original pixel coords
+        scale_x = orig_w / input_w
+        scale_y = orig_h / input_h
 
-        cx, cy, bw, bh = boxes_raw[:, 0], boxes_raw[:, 1], boxes_raw[:, 2], boxes_raw[:, 3]
-        # model-input space -> original image space (undo pad then scale)
-        x1 = (cx - bw / 2 - pad_x) / scale
-        y1 = (cy - bh / 2 - pad_y) / scale
-        x2 = (cx + bw / 2 - pad_x) / scale
-        y2 = (cy + bh / 2 - pad_y) / scale
+        x1 = ((boxes_raw[:, 0] - boxes_raw[:, 2] / 2) * input_w * scale_x).astype(int)
+        y1 = ((boxes_raw[:, 1] - boxes_raw[:, 3] / 2) * input_h * scale_y).astype(int)
+        x2 = ((boxes_raw[:, 0] + boxes_raw[:, 2] / 2) * input_w * scale_x).astype(int)
+        y2 = ((boxes_raw[:, 1] + boxes_raw[:, 3] / 2) * input_h * scale_y).astype(int)
 
-        x1 = np.clip(x1, 0, orig_w).astype(int)
-        y1 = np.clip(y1, 0, orig_h).astype(int)
-        x2 = np.clip(x2, 0, orig_w).astype(int)
-        y2 = np.clip(y2, 0, orig_h).astype(int)
+        # Clip to image bounds
+        x1 = np.clip(x1, 0, orig_w)
+        y1 = np.clip(y1, 0, orig_h)
+        x2 = np.clip(x2, 0, orig_w)
+        y2 = np.clip(y2, 0, orig_h)
 
-        # OpenCV NMSBoxes expects [x, y, w, h]
-        nms_boxes = np.stack([x1, y1, x2 - x1, y2 - y1], axis=1).tolist()
+        # NMS
+        bboxes_xyxy = np.stack([x1, y1, x2, y2], axis=1).tolist()
         indices = cv2.dnn.NMSBoxes(
-            nms_boxes, confidences.tolist(), self._conf_threshold, self._nms_threshold,
+            bboxes_xyxy,
+            confidences.tolist(),
+            self._conf_threshold,
+            self._nms_threshold,
         )
         if indices is None or len(indices) == 0:
             return []
 
+        indices = np.array(indices).flatten()
         detections: List[Detection] = []
-        for idx in np.array(indices).flatten():
-            if x2[idx] <= x1[idx] or y2[idx] <= y1[idx]:
-                continue
+        for idx in indices:
             cid = int(class_ids[idx])
             name = self._class_names[cid] if cid < len(self._class_names) else str(cid)
             detections.append(

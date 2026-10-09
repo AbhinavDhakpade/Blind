@@ -77,20 +77,11 @@ If using a USB webcam instead, set `camera.backend: opencv` in config.
 
 ## 4. GPIO Setup
 
-### Enable GPIO (Raspberry Pi 5)
-
-The Pi 5 uses the RP1 I/O chip, which the classic `RPi.GPIO` package does
-**not** support. Use `rpi-lgpio`, a drop-in replacement with the same
-`import RPi.GPIO` API:
+### Enable GPIO
 
 ```bash
-sudo apt remove -y python3-rpi.gpio     # conflicts with rpi-lgpio
-sudo apt install -y python3-rpi-lgpio
+sudo apt install -y python3-rpi.gpio
 ```
-
-Never `pip install RPi.GPIO` on a Pi 5. The virtual environment in step 5
-must be created with `--system-site-packages` so it can see this package
-and `picamera2`.
 
 ### HC-SR04 Voltage Divider Wiring
 
@@ -127,7 +118,7 @@ git clone <your-repo-url> vision_bob
 cd vision_bob
 
 # Create virtual environment
-python3 -m venv --system-site-packages venv
+python3 -m venv venv
 source venv/bin/activate
 
 # Install base dependencies

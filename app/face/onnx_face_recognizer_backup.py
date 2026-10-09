@@ -25,7 +25,6 @@ from typing import Dict, List, Optional, Tuple
 
 import cv2
 import numpy as np
-from app.face.face_alignment import align_face
 
 from app.face.base import FaceRecognizerInterface, FaceResult, FaceIdentity, NO_FACE_RESULT
 from app.detection.base import ModelLoadError
@@ -143,11 +142,7 @@ class ONNXFaceRecognizer(FaceRecognizerInterface):
                 continue
             embedding = self._embed(crop)
             name, sim = self._match(embedding)
-            decision = name if sim >= self._sim_threshold else "UNKNOWN"
-            logger.info(
-                "FACE: best=%s sim=%.4f thr=%.2f -> %s",
-                name, sim, self._sim_threshold, decision,
-            )
+            logger.info("FACE MATCH: %s | similarity=%.4f | threshold=%.4f", name, sim, self._sim_threshold)
             if sim >= self._sim_threshold:
                 results.append(FaceResult(
                     identity=FaceIdentity.KNOWN,
@@ -178,9 +173,16 @@ class ONNXFaceRecognizer(FaceRecognizerInterface):
     def _align_crop(
         self, frame: np.ndarray, face_row: np.ndarray, img_w: int, img_h: int
     ) -> Optional[np.ndarray]:
-        """Align using the 5 YuNet landmarks (same as enrollment)."""
-        iw, _ = self._input_size
-        return align_face(frame, face_row, output_size=iw)
+        """Crop, resize to 112×112; optionally align using landmarks."""
+        x1, y1, x2, y2 = self._parse_bbox(face_row, img_w, img_h)
+        if x2 <= x1 or y2 <= y1:
+            return None
+        crop = frame[y1:y2, x1:x2]
+        if crop.size == 0:
+            return None
+        iw, ih = self._input_size
+        crop = cv2.resize(crop, (iw, ih))
+        return crop
 
     # ------------------------------------------------------------------
     def _embed(self, crop: np.ndarray) -> np.ndarray:

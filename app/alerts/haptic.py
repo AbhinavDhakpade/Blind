@@ -57,11 +57,14 @@ class GPIOHapticAlert(HapticAlertInterface):
         self._pwm = None
 
     def initialize(self) -> None:
-        from app.utils.gpio import import_gpio, setup_bcm
+        try:
+            import RPi.GPIO as GPIO  # type: ignore
+        except ImportError as exc:
+            raise RuntimeError("RPi.GPIO not available.") from exc
 
-        GPIO = import_gpio()      # raises GPIOUnavailableError (a RuntimeError)
-        setup_bcm(GPIO)
         self._gpio = GPIO
+        GPIO.setmode(GPIO.BCM)
+        GPIO.setwarnings(False)
         GPIO.setup(self._pin, GPIO.OUT)
         GPIO.output(self._pin, False)
         self._pwm = GPIO.PWM(self._pin, 100)   # 100 Hz PWM

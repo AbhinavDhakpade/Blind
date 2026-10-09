@@ -123,7 +123,7 @@
 - Manages camera lifecycle (init, capture, shutdown)
 
 ### Sensors (`app/sensors/`)
-- HC-SR04 driver via the RPi.GPIO API (rpi-lgpio on Pi 5), ranging in a background thread; `measure()` returns the latest reading and never blocks
+- HC-SR04 driver via RPi.GPIO
 - Returns `SensorReading(distance_m, valid, error)`
 - Median-of-N measurements for stability
 - Mock sensor generates sinusoidal distance variation
